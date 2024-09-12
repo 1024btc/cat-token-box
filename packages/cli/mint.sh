@@ -5,6 +5,11 @@
 
 while true; do
     response=$(curl -s https://mempool.fractalbitcoin.io/api/v1/fees/recommended)
+    
+    # 经济的gas文案
+    # response=$(curl -s https://mempool.fractalbitcoin.io/api/v1/fees/mempool-blocks)
+    # feeRate=$(echo $response | jq '.[0].feeRange | .[2]') # 倒数第三档
+
     feeRate=$(echo $response | jq '.fastestFee')
     echo $feeRate
 
